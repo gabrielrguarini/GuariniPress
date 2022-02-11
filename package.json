@@ -1,0 +1,26 @@
+{
+  "name": "guarinipress",
+  "version": "1.0.0",
+  "description": "\"# GuariniPress\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielrguarini/GuariniPress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielrguarini/GuariniPress/issues"
+  },
+  "homepage": "https://github.com/gabrielrguarini/GuariniPress#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.16.1"
+  }
+}

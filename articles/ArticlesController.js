@@ -18,6 +18,28 @@ router.get("/admin/articles/new", (req, res) => {
     });
 });
 
+router.post("/articles/update", (req, res) => {
+    var title = req.body.title;
+    var body = req.body.body;
+    var id = req.body.id;
+    var category = req.body.category;
+    Article.update(
+        {
+            title: title,
+            body: body,
+            categoryId: category,
+            slug: slugify(title).toLowerCase(),
+        },
+        { where: { id: id } }
+    )
+        .then(() => {
+            res.redirect("/admin/articles");
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+});
+
 router.post("/articles/save", (req, res) => {
     var title = req.body.title;
     var body = req.body.body;
@@ -54,6 +76,15 @@ router.post("/articles/delete", (req, res) => {
     } else {
         res.redirect("/admin/articles");
     }
+});
+
+router.get("/admin/articles/edit/:id", (req, res) => {
+    const id = req.params.id;
+    Article.findByPk(id).then((article) => {
+        Category.findAll().then((categories) => {
+            res.render("admin/articles/edit", { article, categories });
+        });
+    });
 });
 
 module.exports = router;

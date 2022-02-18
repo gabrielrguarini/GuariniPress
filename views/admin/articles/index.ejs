@@ -26,8 +26,8 @@
                     <form
                         action="/articles/delete"
                         method="post"
-                        style="display: inline"
                         onsubmit="confirmDel(event, this)"
+                        style="display: inline"
                     >
                         <input
                             type="hidden"
@@ -36,6 +36,11 @@
                         />
                         <button class="btn btn-danger">Deletar</button>
                     </form>
+                    <a
+                        href="/admin/articles/edit/<%= article.id %>"
+                        class="btn btn-warning"
+                        >Editar</a
+                    >
                 </td>
             </tr>
             <% }) %>

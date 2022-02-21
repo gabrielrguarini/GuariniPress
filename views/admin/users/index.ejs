@@ -2,43 +2,29 @@
 ('../../partials/navbar.ejs') %>
 <div class="container">
     <hr />
-    <h2>Artigos</h2>
-    <a href="/admin/articles/new" class="btn btn-primary">Criar novo artigo</a>
+    <h2>Usuários</h2>
+    <a href="/admin/users/create" class="btn btn-primary">Novo usuário</a>
     <hr />
     <table class="table table-bordered table-hover table-sm">
         <thead class="table-dark">
             <tr>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Slug</th>
-                <th>Categoria</th>
+                <th>Email</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            <% articles.forEach( (article) => { %>
+            <% users.forEach( (user) => { %>
             <tr>
-                <td><%= article.id %></td>
-                <td><%= article.title %></td>
-                <td><%= article.slug %></td>
-                <td><%= article.category.title %></td>
+                <td><%= user.email %></td>
                 <td>
-                    <a
-                        href="/admin/articles/edit/<%= article.id %>"
-                        class="btn btn-warning"
-                        >Editar</a
-                    >
+                    <a class="btn btn-warning">Editar</a>
                     <form
-                        action="/articles/delete"
+                        action="/users/delete"
                         method="post"
                         style="display: inline"
                         onsubmit="confirmDel(event, this)"
                     >
-                        <input
-                            type="hidden"
-                            name="id"
-                            value="<%= article.id %>"
-                        />
+                        <input type="hidden" name="id" value="<%= user.id %>" />
                         <button class="btn btn-danger">Deletar</button>
                     </form>
                 </td>
